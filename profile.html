@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampião (@rei_do_cangaco) • Lampiagram</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="insta-header">
+        <div class="profile-pic-container" id="openStories">
+            <div class="profile-pic-img" style="background-image: url('lampiao_perfil.jpg');"></div>
+        </div>
+
+        <div class="profile-info">
+            <div class="username-row">
+                <h1 class="username">rei_do_cangaco</h1>
+                <i class="fas fa-check-circle verified-badge" style="color: #0095f6;"></i>
+                <button class="follow-btn"
+                    style="background-color: #0095f6; color: white; border: none; padding: 5px 15px; border-radius: 4px; font-weight: 600; cursor: pointer;">Seguir</button>
+            </div>
+
+            <div class="stats-row">
+                <div class="stats-item"><strong>9</strong> publicações</div>
+                <div class="stats-item"><strong>1.2k</strong> seguidores</div>
+                <div class="stats-item"><strong>18</strong> seguindo</div>
+            </div>
+
+            <div class="bio">
+                <p><strong>Virgulino Ferreira da Silva</strong></p>
+                <p>Herói ou bandido? 🏜️👑</p>
+                <p>Resistência e História no Sertão Brasileiro.</p>
+                <p>📍 Poço Redondo, Sergipe.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="highlights-container">
+        <div class="highlight-item" onclick="openPostModal('origem.jpg', 'A ORIGEM: O início de tudo.')">
+            <div class="highlight-circle"><img src="origem.jpg"></div>
+            <span>A Origem</span>
+        </div>
+        <div class="highlight-item" onclick="openPostModal('capitao.jpg', 'O CAPITÃO: Autoridade e respeito.')">
+            <div class="highlight-circle"><img src="capitao.jpg"></div>
+            <span>O Capitão</span>
+        </div>
+        <div class="highlight-item"
+            onclick="openPostModal('maria_bonita_destaque.jpg', 'MARIA BONITA: A força feminina.')">
+            <div class="highlight-circle"><img src="maria_bonita_destaque.jpg"></div>
+            <span>Maria Bonita</span>
+        </div>
+        <div class="highlight-item" onclick="openPostModal('riqueza.jpg', 'OURO E PODER: Ostentação no sertão.')">
+            <div class="highlight-circle"><img src="riqueza.jpg"></div>
+            <span>Ouro e Poder</span>
+        </div>
+    </section>
+
+    <div class="profile-tabs">
+        <div class="tab active"><i class="fas fa-th"></i> PUBLICAÇÕES</div>
+        <div class="tab"><i class="fas fa-video"></i> REELS</div>
+        <div class="tab"><i class="fas fa-user-tag"></i> MARCADOS</div>
+    </div>
+
+    <main class="posts-grid">
+        <div class="post-item"
+            onclick="openPostModal('https://res.cloudinary.com/dl6brxlht/video/upload/v1774207463/entrevista_vncjdd.mp4', 'ENTREVISTA HISTÓRICA: O encontro em Juazeiro.', 'video')">
+            <video src="https://res.cloudinary.com/dl6brxlht/video/upload/v1774207463/entrevista_vncjdd.mp4"
+                class="post-image" muted></video>
+            <i class="fas fa-play media-icon"></i>
+            <div class="post-overlay"><i class="fas fa-video"></i> 1.2k</div>
+        </div>
+
+        <div class="post-item"
+            onclick="openPostModal('https://res.cloudinary.com/dl6brxlht/video/upload/v1774207468/a-face-oculta-de-lampiao_kqqwja.mp4', 'A FACE OCULTA: A desconstrução do mito.', 'video')">
+            <video
+                src="https://res.cloudinary.com/dl6brxlht/video/upload/v1774207468/a-face-oculta-de-lampiao_kqqwja.mp4"
+                class="post-image" muted></video>
+            <i class="fas fa-exclamation-triangle media-icon" style="color: yellow;"></i>
+            <div class="post-overlay"><i class="fas fa-play"></i> 3.1k</div>
+        </div>
+
+        <div class="post-item"
+            onclick="openPostModal('bornal_misticismo_zoom.png', 'O ESCUDO QUE FALHOU: Detalhe do bornal do Angicos.')">
+            <img src="bornal_misticismo_zoom.png" class="post-image">
+            <i class="fas fa-search-plus media-icon"></i>
+            <div class="post-overlay"><i class="fas fa-heart"></i> 512</div>
+        </div>
+
+        <div class="post-item"
+            onclick="openPostModal('misticismo_cangaco.jpg', 'MISTICISMO: Símbolos de proteção e fé.')">
+            <img src="misticismo_cangaco.jpg" class="post-image">
+            <i class="fas fa-magic media-icon"></i>
+            <div class="post-overlay"><i class="fas fa-heart"></i> 389</div>
+        </div>
+    </main>
+
+    <div class="modal" id="postModal">
+        <span class="close-modal" id="closePostModal">&times;</span>
+        <div class="modal-content detail-content">
+            <div class="detail-image-container" id="modalImageContainer"></div>
+            <div class="detail-info-container">
+                <div class="detail-username-row"
+                    style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #efefef; padding-bottom: 15px; margin-bottom: 15px;">
+                    <div class="profile-pic-img"
+                        style="background-image: url('lampiao_perfil.jpg'); width: 40px; height: 40px;"></div>
+                    <strong>rei_do_cangaco</strong>
+                </div>
+                <p id="modalDescription" style="line-height: 1.5; color: #262626;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
