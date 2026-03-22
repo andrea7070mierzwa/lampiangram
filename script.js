@@ -2,15 +2,16 @@ function openPostModal(source, description, type = 'image') {
     const container = document.getElementById('modalImageContainer');
     const desc = document.getElementById('modalDescription');
     const modal = document.getElementById('postModal');
-    container.innerHTML = '';
-    
+
+    container.innerHTML = ''; // Limpa o que tinha antes
+
     if (type === 'video') {
-        container.innerHTML = `<video src="${source}" controls autoplay style="width:100%; height:100%"></video>`;
+        container.innerHTML = `<video src="${source}" controls autoplay style="width:100%"></video>`;
     } else {
-        container.innerHTML = `<img src="${source}" style="max-width:100%; max-height:100%; object-fit: contain;">`;
+        container.innerHTML = `<img src="${source}" style="max-width:100%; max-height:100%">`;
     }
-    
-    desc.innerText = description;
+
+    desc.innerText = description; // Aqui é onde o texto entra!
     modal.style.display = 'flex';
 }
 
