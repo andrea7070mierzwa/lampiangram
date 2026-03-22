@@ -3,15 +3,27 @@ function openPostModal(source, description, type = 'image') {
     const desc = document.getElementById('modalDescription');
     const modal = document.getElementById('postModal');
     container.innerHTML = '';
+    
     if (type === 'video') {
-        container.innerHTML = `<video src="${source}" controls autoplay style="width:100%"></video>`;
+        container.innerHTML = `<video src="${source}" controls autoplay style="width:100%; height:100%"></video>`;
     } else {
-        container.innerHTML = `<img src="${source}" style="max-width:100%; max-height:100%">`;
+        container.innerHTML = `<img src="${source}" style="max-width:100%; max-height:100%; object-fit: contain;">`;
     }
+    
     desc.innerText = description;
     modal.style.display = 'flex';
 }
+
 document.getElementById('closePostModal').onclick = () => {
     document.getElementById('postModal').style.display = 'none';
     document.getElementById('modalImageContainer').innerHTML = '';
+};
+
+// Fechar modal ao clicar fora dele
+window.onclick = (event) => {
+    const modal = document.getElementById('postModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+        document.getElementById('modalImageContainer').innerHTML = '';
+    }
 };
