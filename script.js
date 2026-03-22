@@ -1,17 +1,91 @@
-function openPostModal(source, description, type = 'image') {
-    const container = document.getElementById('modalImageContainer');
-    const desc = document.getElementById('modalDescription');
-    const modal = document.getElementById('postModal');
-    container.innerHTML = '';
-    if (type === 'video') {
-        container.innerHTML = `<video src="${source}" controls autoplay style="width:100%"></video>`;
-    } else {
-        container.innerHTML = `<img src="${source}" style="max-width:100%; max-height:100%">`;
-    }
-    desc.innerText = description;
-    modal.style.display = 'flex';
-}
-document.getElementById('closePostModal').onclick = () => {
-    document.getElementById('postModal').style.display = 'none';
-    document.getElementById('modalImageContainer').innerHTML = '';
-};
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampião (@rei_do_cangaco) • Lampiagram</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="insta-header">
+        <div class="profile-pic-container">
+            <div class="profile-pic-img" style="background-image: url('ativos/lampiao_perfil.jpg');"></div>
+        </div>
+        <div class="profile-info">
+            <div class="username-row">
+                <h1 class="username">rei_do_cangaco</h1>
+                <i class="fas fa-check-circle verified-badge" style="color: #0095f6;"></i>
+                <button class="follow-btn">Seguir</button>
+            </div>
+            <div class="stats-row">
+                <div><strong>9</strong> publicações</div>
+                <div><strong>1.2k</strong> seguidores</div>
+                <div><strong>18</strong> seguindo</div>
+            </div>
+            <div class="bio">
+                <p><strong>Virgulino Ferreira da Silva</strong></p>
+                <p>Herói ou bandido? 🏜️👑</p>
+                <p>Resistência e História no Sertão Brasileiro.</p>
+                <p>📍 Poço Redondo, Sergipe.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="highlights-container">
+        <div class="highlight-item" onclick="openPostModal('ativos/origem.jpg', 'A ORIGEM: O início de tudo.')">
+            <div class="highlight-circle"><img src="ativos/origem.jpg"></div>
+            <span>A Origem</span>
+        </div>
+        <div class="highlight-item" onclick="openPostModal('ativos/capitao.jpg', 'O CAPITÃO: Autoridade e respeito.')">
+            <div class="highlight-circle"><img src="ativos/capitao.jpg"></div>
+            <span>O Capitão</span>
+        </div>
+        <div class="highlight-item" onclick="openPostModal('ativos/maria_bonita_destaque.jpg', 'MARIA BONITA: A força feminina.')">
+            <div class="highlight-circle"><img src="ativos/maria_bonita_destaque.jpg"></div>
+            <span>Maria Bonita</span>
+        </div>
+        <div class="highlight-item" onclick="openPostModal('ativos/riqueza.jpg', 'OURO E PODER: Ostentação no sertão.')">
+            <div class="highlight-circle"><img src="ativos/riqueza.jpg"></div>
+            <span>Ouro e Poder</span>
+        </div>
+    </section>
+
+    <div class="profile-tabs">
+        <div class="tab active"><i class="fas fa-th"></i> PUBLICAÇÕES</div>
+        <div class="tab"><i class="fas fa-video"></i> REELS</div>
+    </div>
+
+    <main class="posts-grid">
+        <div class="post-item" onclick="openPostModal('https://res.cloudinary.com/dl6brxlht/video/upload/v1774207463/entrevista_vncjdd.mp4', 'ENTREVISTA HISTÓRICA: O encontro em Juazeiro.', 'video')">
+            <video src="https://res.cloudinary.com/dl6brxlht/video/upload/v1774207463/entrevista_vncjdd.mp4" class="post-image" muted preload="metadata"></video>
+            <i class="fas fa-play media-icon"></i>
+        </div>
+        <div class="post-item" onclick="openPostModal('https://res.cloudinary.com/dl6brxlht/video/upload/v1774207468/a-face-oculta-de-lampiao_kqqwja.mp4', 'A FACE OCULTA: A desconstrução do mito.', 'video')">
+            <video src="https://res.cloudinary.com/dl6brxlht/video/upload/v1774207468/a-face-oculta-de-lampiao_kqqwja.mp4" class="post-image" muted preload="metadata"></video>
+            <i class="fas fa-exclamation-triangle media-icon" style="color: yellow;"></i>
+        </div>
+        <div class="post-item" onclick="openPostModal('ativos/bornal_misticismo_zoom.png', 'O ESCUDO QUE FALHOU: Detalhe do bornal do Angicos.')">
+            <img src="ativos/bornal_misticismo_zoom.png" class="post-image">
+        </div>
+        <div class="post-item" onclick="openPostModal('ativos/misticismo_cangaco.jpg', 'MISTICISMO: Símbolos de proteção e fé.')">
+            <img src="ativos/misticismo_cangaco.jpg" class="post-image">
+        </div>
+    </main>
+
+    <div class="modal" id="postModal">
+        <span class="close-modal" id="closePostModal">&times;</span>
+        <div class="modal-content">
+            <div class="detail-image-container" id="modalImageContainer"></div>
+            <div class="detail-info-container">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <div class="profile-pic-img" style="width: 30px; height: 30px; background-image: url('ativos/lampiao_perfil.jpg');"></div>
+                    <strong>rei_do_cangaco</strong>
+                </div>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
