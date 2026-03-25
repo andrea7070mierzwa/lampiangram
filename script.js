@@ -3,7 +3,7 @@ function openPostModal(source, description, type = 'image') {
     const desc = document.getElementById('modalDescription');
     const modal = document.getElementById('postModal');
 
-    container.innerHTML = ''; // Limpa o que tinha antes
+    container.innerHTML = '<video src="' + source + '" controls autoplay muted style="width:100%"><source src="' + source + '" type="video/mp4"></video>';
 
     if (type === 'video') {
         container.innerHTML = `<video src="${source}" controls autoplay style="width:100%"></video>`;
